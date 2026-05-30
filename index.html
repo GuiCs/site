@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guilherme Cavalheiro - Home Page</title>
-  <meta name="description" content="Landing page pessoal com estética de internet e CD-ROM dos anos 90." />
+  <title>Guilherme Santerini Cavalheiro - Home Page</title>
+  <meta name="description" content="Página pessoal de Guilherme Santerini Cavalheiro, estudante de Engenharia Elétrica na Escola Politécnica da USP." />
 
   <style>
     * {
@@ -40,7 +40,7 @@
     }
 
     .page {
-      width: min(940px, 96%);
+      width: min(960px, 96%);
       margin: 18px auto;
       border: 4px ridge #d6d6d6;
       background: #c0c0c0;
@@ -93,7 +93,7 @@
     .marquee span {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 18s linear infinite;
+      animation: marquee 20s linear infinite;
     }
 
     @keyframes marquee {
@@ -103,7 +103,7 @@
 
     .layout {
       display: grid;
-      grid-template-columns: 210px 1fr;
+      grid-template-columns: 225px 1fr;
       gap: 12px;
       padding: 12px;
     }
@@ -111,7 +111,10 @@
     .sidebar,
     .content-box,
     .card,
-    .guestbook {
+    .guestbook,
+    .photo-box,
+    .clock-box,
+    .gif-panel {
       background: #eeeeee;
       border-top: 3px solid #ffffff;
       border-left: 3px solid #ffffff;
@@ -153,15 +156,69 @@
       background: #ffff99;
     }
 
-    .counter {
+    .clock-box {
       margin-top: 12px;
       padding: 8px;
-      text-align: center;
-      color: #00ff00;
       background: #000;
+      color: #00ff00;
       border: 2px inset #808080;
       font-family: "Courier New", Courier, monospace;
       font-size: 13px;
+    }
+
+    .clock-title {
+      color: #ffff00;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 7px;
+      border-bottom: 1px dotted #00ff00;
+      padding-bottom: 5px;
+    }
+
+    .clock-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 4px 0;
+    }
+
+    .under-construction {
+      display: block;
+      margin-top: 12px;
+      padding: 5px 8px;
+      color: #000;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffff00 0 8px,
+        #000 8px 16px
+      );
+      border: 2px solid #000;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 0 #fff;
+    }
+
+    .gif-panel {
+      margin-top: 12px;
+      padding: 8px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .gif-panel img {
+      max-width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+      border: 1px solid #808080;
+      background: #ffffcc;
+    }
+
+    .gif-note {
+      display: block;
+      margin-top: 5px;
+      font-size: 11px;
+      color: #555;
+      font-family: "Courier New", Courier, monospace;
     }
 
     main {
@@ -174,7 +231,7 @@
     }
 
     .hero {
-      min-height: 360px;
+      min-height: 380px;
       background:
         radial-gradient(circle at 76% 24%, #ffff99 0 0, #ffcc33 0 56px, transparent 58px),
         linear-gradient(180deg, #66ccff 0%, #ccffff 48%, #ff99cc 49%, #663399 100%);
@@ -182,6 +239,10 @@
       padding: 18px;
       position: relative;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 190px;
+      gap: 16px;
+      align-items: start;
     }
 
     .hero::before {
@@ -205,8 +266,51 @@
       z-index: 2;
       max-width: 650px;
       padding: 14px;
-      background: rgba(255, 255, 204, 0.92);
+      background: rgba(255, 255, 204, 0.94);
       border: 3px double #000080;
+    }
+
+    .photo-box {
+      position: relative;
+      z-index: 2;
+      padding: 8px;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      display: grid;
+      place-items: center;
+      color: #000080;
+      background:
+        linear-gradient(45deg, #dcdcdc 25%, transparent 25%),
+        linear-gradient(-45deg, #dcdcdc 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #dcdcdc 75%),
+        linear-gradient(-45deg, transparent 75%, #dcdcdc 75%),
+        #ffffff;
+      background-size: 18px 18px;
+      background-position: 0 0, 0 9px, 9px -9px, -9px 0px;
+      border: 2px inset #808080;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 2px inset #808080;
+    }
+
+    .photo-caption {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #444;
+      font-family: "Courier New", Courier, monospace;
     }
 
     .stamp {
@@ -225,7 +329,7 @@
       margin: 0 0 10px;
       color: #000080;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.2rem, 7vw, 4.4rem);
+      font-size: clamp(2rem, 6vw, 4.1rem);
       line-height: 0.95;
       text-shadow: 3px 3px 0 #ff99cc;
     }
@@ -267,6 +371,10 @@
       font-weight: bold;
     }
 
+    .old-button:visited {
+      color: #000;
+    }
+
     .old-button:active {
       border-top: 3px solid #404040;
       border-left: 3px solid #404040;
@@ -305,7 +413,7 @@
     }
 
     .intro-table th {
-      width: 150px;
+      width: 165px;
       color: #fff;
       background: #000080;
     }
@@ -319,7 +427,7 @@
 
     .card {
       padding: 10px;
-      min-height: 180px;
+      min-height: 175px;
       background: #ffffe6;
     }
 
@@ -331,8 +439,13 @@
       font-size: 18px;
     }
 
-    .card p {
-      margin: 0;
+    .card p,
+    .card ul {
+      margin-top: 0;
+    }
+
+    .card ul {
+      padding-left: 18px;
     }
 
     .tag {
@@ -344,6 +457,23 @@
       font-size: 12px;
       font-family: "Courier New", Courier, monospace;
       font-weight: bold;
+    }
+
+    .blog-box {
+      padding: 12px;
+      background: #e6f0ff;
+      border: 3px double #000080;
+    }
+
+    .blog-status {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      background: #ffff00;
+      color: #000;
+      border: 2px solid #000;
+      font-weight: bold;
+      font-family: "Courier New", Courier, monospace;
     }
 
     .guestbook {
@@ -364,6 +494,33 @@
       word-break: break-word;
     }
 
+    .email-line a {
+      color: #00ffff;
+    }
+
+    .gif-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mini-gif {
+      padding: 8px;
+      text-align: center;
+      background: #ffffff;
+      border: 2px inset #808080;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+    }
+
+    .mini-gif img {
+      max-width: 100%;
+      height: 56px;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
     footer {
       padding: 10px;
       text-align: center;
@@ -373,22 +530,7 @@
       font-size: 13px;
     }
 
-    .under-construction {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 3px 8px;
-      color: #000;
-      background: repeating-linear-gradient(
-        45deg,
-        #ffff00 0 8px,
-        #000 8px 16px
-      );
-      border: 2px solid #000;
-      font-weight: bold;
-      text-shadow: 1px 1px 0 #fff;
-    }
-
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .layout {
         grid-template-columns: 1fr;
       }
@@ -397,12 +539,18 @@
         position: static;
       }
 
-      .cards {
+      .hero {
         grid-template-columns: 1fr;
+        min-height: 520px;
       }
 
-      .hero {
-        min-height: 420px;
+      .photo-box {
+        max-width: 220px;
+      }
+
+      .cards,
+      .gif-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -410,7 +558,7 @@
 <body>
   <div class="page">
     <div class="top-bar">
-      <span>GUILHERME_CAVALHEIRO.EXE</span>
+      <span>GUILHERME_SANTERINI_HOME.EXE</span>
       <div class="window-buttons" aria-hidden="true">
         <span>_</span>
         <span>□</span>
@@ -419,23 +567,34 @@
     </div>
 
     <div class="marquee">
-      <span>*** BEM-VINDO À MINHA HOME PAGE *** ENGENHARIA • DADOS • AUTOMAÇÃO • SISTEMAS *** ÚLTIMA ATUALIZAÇÃO: 2026 ***</span>
+      <span>*** BEM-VINDO À MINHA HOME PAGE *** ENGENHARIA ELÉTRICA • ELETRÔNICA • SISTEMAS COMPUTACIONAIS • PROCUREMENT • USP ***</span>
     </div>
 
     <div class="layout">
       <aside class="sidebar">
         <h3>MENU</h3>
         <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre mim</a>
-        <a href="#projetos">Projetos</a>
+        <a href="#formacao">Formação</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#interesses">Interesses</a>
+        <a href="#blog">Blog</a>
         <a href="#contato">Contato</a>
 
-        <div class="counter">
-          VISITANTES<br />
-          00001257
+        <div class="clock-box" aria-label="Relógios mundiais">
+          <div class="clock-title">WORLD CLOCK</div>
+          <div class="clock-row"><span>São Paulo</span><span id="clock-sp">--:--:--</span></div>
+          <div class="clock-row"><span>Pequim</span><span id="clock-pequim">--:--:--</span></div>
+          <div class="clock-row"><span>Tóquio</span><span id="clock-toquio">--:--:--</span></div>
         </div>
 
-        <div class="under-construction">EM CONSTRUÇÃO</div>
+        <a class="under-construction" href="#blog">BLOG EM CONSTRUÇÃO</a>
+
+        <div class="gif-panel">
+          <!-- Troque o arquivo abaixo por um GIF seu em assets/computer.gif -->
+          <img src="assets/computer.gif" alt="GIF decorativo de computador antigo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <span class="gif-note" style="display:none;">coloque um GIF em assets/computer.gif</span>
+          <span class="gif-note">GIF ZONE</span>
+        </div>
       </aside>
 
       <main>
@@ -443,72 +602,164 @@
           <div class="hero">
             <div class="hero-inner">
               <span class="stamp">Personal Web Page</span>
-              <h1>Guilherme Cavalheiro</h1>
+              <h1>Guilherme Santerini Cavalheiro</h1>
               <p class="subtitle">
-                Engenharia, dados, eletrônica e sistemas digitais em uma página com cara de internet antiga.
+                Estudante de Engenharia Elétrica na Escola Politécnica da USP, com interesse em eletrônica,
+                sistemas computacionais, dados, tecnologia e processos industriais.
               </p>
               <p>
-                <span class="blink">NOVO!</span> Esta landing page foi feita em HTML e CSS puro para funcionar direto no GitHub Pages.
+                <span class="blink">NOVO!</span> Página pessoal em estilo anos 90, feita em HTML e CSS puro para GitHub Pages.
               </p>
               <div class="button-row">
-                <a class="old-button" href="#projetos">Ver projetos</a>
-                <a class="old-button" href="#contato">Mandar e-mail</a>
+                <a class="old-button" href="#formacao">Ver formação</a>
+                <a class="old-button" href="#blog">Acessar blog</a>
+                <a class="old-button" href="mailto:sac@santerini.com.br">Enviar e-mail</a>
               </div>
+            </div>
+
+            <div class="photo-box">
+              <!-- Para usar sua foto, coloque o arquivo em assets/foto.jpg e troque o bloco abaixo por:
+                   <img src="assets/foto.jpg" alt="Foto de Guilherme Santerini Cavalheiro" />
+              -->
+              <div class="photo-frame">ESPAÇO<br />PARA<br />FOTO</div>
+              <span class="photo-caption">sugestão: assets/foto.jpg</span>
             </div>
           </div>
         </section>
 
-        <section id="sobre" class="content-box">
-          <h2 class="section-title">Sobre mim</h2>
+        <section id="formacao" class="content-box">
+          <h2 class="section-title">Formação</h2>
           <p>
-            Esta seção funciona como uma pequena ficha pessoal, no estilo de sites antigos, portais escolares e CD-ROMs educativos dos anos 90.
+            Curso Engenharia Elétrica com ênfase em Eletrônica e Sistemas Computacionais na
+            <strong>Escola Politécnica da Universidade de São Paulo</strong>. A formação combina fundamentos de circuitos,
+            eletrônica, sistemas digitais, computação, sinais, controle, telecomunicações e integração entre hardware e software.
           </p>
 
           <table class="intro-table">
             <tr>
-              <th>Nome</th>
-              <td>Guilherme Cavalheiro</td>
+              <th>Instituição</th>
+              <td>Escola Politécnica da USP</td>
             </tr>
             <tr>
-              <th>Área</th>
-              <td>Engenharia Elétrica, dados, automação, eletrônica e sistemas.</td>
+              <th>Curso</th>
+              <td>Engenharia Elétrica</td>
             </tr>
             <tr>
-              <th>Interesses</th>
-              <td>Dashboards, Power Query, BI, hardware, software, produtos digitais e ERPs modulares.</td>
+              <th>Ênfase</th>
+              <td>Eletrônica e Sistemas Computacionais</td>
             </tr>
             <tr>
-              <th>Objetivo</th>
-              <td>Construir soluções simples, úteis e bem organizadas para problemas reais.</td>
+              <th>Áreas relacionadas</th>
+              <td>Circuitos eletrônicos, sistemas embarcados, programação, processamento de sinais, automação e arquitetura de sistemas.</td>
             </tr>
           </table>
         </section>
 
-        <section id="projetos" class="content-box">
-          <h2 class="section-title">Projetos</h2>
+        <section id="experiencia" class="content-box">
+          <h2 class="section-title">Experiência</h2>
+          <div class="cards">
+            <article class="card">
+              <span class="tag">ATUAL</span>
+              <h3>Procurement</h3>
+              <p>
+                Estagiário em Procurement na <strong>Companhia Siderúrgica Nacional</strong>, com atuação ligada a processos de compras,
+                acompanhamento de fornecedores, análise de dados e suporte a decisões da área.
+              </p>
+            </article>
+
+            <article class="card">
+              <span class="tag">2021-2022</span>
+              <h3>Grêmio Politécnico</h3>
+              <p>
+                Diretor Jurídico e Administrativo do <strong>Grêmio Politécnico da USP</strong>, participando da gestão institucional,
+                rotinas administrativas, organização interna e suporte às atividades da entidade estudantil.
+              </p>
+            </article>
+
+            <article class="card">
+              <span class="tag">PERFIL</span>
+              <h3>Interseção técnica</h3>
+              <p>
+                Experiência e interesse na ligação entre engenharia, organização de processos, análise de informação,
+                tecnologia e desenvolvimento de soluções práticas.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="interesses" class="content-box">
+          <h2 class="section-title">Interesses</h2>
           <p>
-            Troque os cards abaixo pelos seus projetos reais. A ideia é ficar com aparência de catálogo digital antigo,
-            mas ainda legível em celular e desktop.
+            Alguns temas que aparecem com frequência nos meus estudos, trabalhos e ideias:
           </p>
 
           <div class="cards">
             <article class="card">
-              <span class="tag">PROJETO 01</span>
-              <h3>Dashboard de indicadores</h3>
-              <p>Espaço para análises, KPIs, automações em planilhas, relatórios e visualizações de dados.</p>
+              <span class="tag">ENG</span>
+              <h3>Eletrônica e sistemas</h3>
+              <ul>
+                <li>Eletrônica analógica e digital</li>
+                <li>Sistemas embarcados</li>
+                <li>Automação e sensores</li>
+                <li>Integração hardware/software</li>
+              </ul>
             </article>
 
             <article class="card">
-              <span class="tag">PROJETO 02</span>
-              <h3>Protótipo eletrônico</h3>
-              <p>Área para projetos com ESP32, sensores, placas, automação, IoT ou sistemas embarcados.</p>
+              <span class="tag">DADOS</span>
+              <h3>Dados e processos</h3>
+              <ul>
+                <li>Excel, Power Query e BI</li>
+                <li>Indicadores e dashboards</li>
+                <li>Compras e suprimentos</li>
+                <li>Organização de informação</li>
+              </ul>
             </article>
 
             <article class="card">
-              <span class="tag">PROJETO 03</span>
-              <h3>Sistema modular</h3>
-              <p>Espaço para ideias de software, ERP, SaaS, back-end, front-end ou produto digital.</p>
+              <span class="tag">IDEIAS</span>
+              <h3>Tecnologia e produto</h3>
+              <ul>
+                <li>Sistemas modulares</li>
+                <li>Produtos digitais</li>
+                <li>Interfaces simples</li>
+                <li>História da tecnologia e estética retrô</li>
+              </ul>
             </article>
+          </div>
+
+          <div class="gif-row" aria-label="Espaços para GIFs decorativos">
+            <div class="mini-gif">
+              <img src="assets/email.gif" alt="GIF decorativo de e-mail" onerror="this.style.display='none';" />
+              <div>assets/email.gif</div>
+            </div>
+            <div class="mini-gif">
+              <img src="assets/chip.gif" alt="GIF decorativo de chip" onerror="this.style.display='none';" />
+              <div>assets/chip.gif</div>
+            </div>
+            <div class="mini-gif">
+              <img src="assets/under-construction.gif" alt="GIF decorativo em construção" onerror="this.style.display='none';" />
+              <div>assets/under-construction.gif</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="blog" class="content-box">
+          <h2 class="section-title">Blog</h2>
+          <div class="blog-box">
+            <span class="blog-status">STATUS: EM CONSTRUÇÃO</span>
+            <p>
+              Esta área será reservada para textos, notas, ideias e registros sobre engenharia, tecnologia,
+              mercado, processos, estudos e outros assuntos de interesse.
+            </p>
+            <p>
+              Por enquanto, o blog ainda está sendo montado. O botão abaixo pode apontar para uma página futura,
+              como <strong>blog.html</strong>, um subdomínio ou uma plataforma externa.
+            </p>
+            <div class="button-row">
+              <a class="old-button" href="blog.html">Entrar no blog</a>
+              <a class="old-button" href="mailto:sac@santerini.com.br">Sugerir tema</a>
+            </div>
           </div>
         </section>
 
@@ -516,13 +767,13 @@
           <h2 class="section-title">Contato</h2>
           <div class="guestbook">
             <p>
-              Quer conversar, mandar uma ideia ou ver meus projetos? Substitua os links abaixo pelos seus dados reais.
+              Para dúvidas, sugestões e reclamações, envie uma mensagem para o Serviço de Atendimento ao Cavalheiro.
             </p>
 
             <div class="email-line">
-              EMAIL: <a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a><br />
-              GITHUB: <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer">github.com/seu-usuario</a><br />
-              LINKEDIN: <a href="https://www.linkedin.com/in/seu-usuario" target="_blank" rel="noopener noreferrer">linkedin.com/in/seu-usuario</a>
+              SAC: <a href="mailto:sac@santerini.com.br">sac@santerini.com.br</a><br />
+              ASSUNTO SUGERIDO: dúvidas, sugestões e reclamações<br />
+              RESPOSTA: em horário comercial, conforme disponibilidade
             </div>
           </div>
         </section>
@@ -530,8 +781,33 @@
     </div>
 
     <footer>
-      © 2026 Guilherme Cavalheiro — Feito em HTML/CSS puro. Melhor visualizado em qualquer navegador moderno :)
+      © 2026 Guilherme Santerini Cavalheiro — Página pessoal em HTML/CSS puro. Melhor visualizado em 800x600 ou superior :)
     </footer>
   </div>
+
+  <script>
+    function updateClock(id, timeZone) {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const now = new Date();
+      element.textContent = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: timeZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
+    }
+
+    function updateAllClocks() {
+      updateClock('clock-sp', 'America/Sao_Paulo');
+      updateClock('clock-pequim', 'Asia/Shanghai');
+      updateClock('clock-toquio', 'Asia/Tokyo');
+    }
+
+    updateAllClocks();
+    setInterval(updateAllClocks, 1000);
+  </script>
 </body>
 </html>
